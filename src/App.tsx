@@ -6,12 +6,19 @@ import Menu from "./components/Menu";
 import Wordle from "./components/Wordle";
 
 const App: Component = () => {
+  let ref = (<input />) as HTMLInputElement;
+
   return (
-    <div class={styles.App}>
+    <div
+      class={styles.App}
+      onClick={() => {
+        console.log("focusing");
+        ref.focus();
+      }}
+    >
       <header class={styles.header}>
-        {/* <img src={logo} class={styles.logo} alt="logo" /> */}
         <Menu />
-        <Wordle />
+        <Wordle ref={ref} />
       </header>
     </div>
   );
