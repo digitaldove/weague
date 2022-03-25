@@ -6,7 +6,7 @@ interface Props {
 }
 
 const Wordle: Component<Props> = ({ ref }) => {
-  const [input, setInput] = createSignal("abcde");
+  const [input, setInput] = createSignal("");
   const [guess, setGuess] = createSignal([]);
 
   return (
@@ -16,16 +16,22 @@ const Wordle: Component<Props> = ({ ref }) => {
         ref={ref}
         style={{ "z-index": -1, position: "absolute", top: 0, left: 0 }}
         autofocus
+        // onKeyPress={(e) => {}}
         onInput={(e) => {
-          console.log(e.currentTarget.value);
+          // console.log(e);
+          // console.log(e.currentTarget.value);
+          // e.preventDefault()
           setInput(e.currentTarget.value);
+          // if (input().length < 5) {
+          // }
         }}
+        maxLength={5}
         onBlur={(e) => {
-          console.log("out of focus")
+          console.log("out of focus");
         }}
-        onFocus={(e) => {
-          console.log("focusing")
-        }}
+        // onFocus={(e) => {
+        //   console.log("focusing");
+        // }}
       />
       <InputGroup input={input()} />
     </>
