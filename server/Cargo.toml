@@ -7,3 +7,4 @@ edition = "2018"
 
 [dependencies]
 actix-web = "4"
+csv = "1.1"
