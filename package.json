@@ -5,6 +5,7 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
+    "server": "cargo run --manifest-path server/Cargo.toml",
     "build": "vite build",
     "serve": "vite preview"
   },
