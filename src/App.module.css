@@ -10,13 +10,35 @@
 
 .header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 100px;
+  /* width: 100%; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+
+  border-bottom: 2px solid #fff;
+}
+
+.body {
+  /* Size */
+  width: 100vw;
+  height: calc(100vh - 100px);
+
+  /* Theme */
+  background-color: #282c34;
+
+  /* Positioning */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Text */
+  color: white;
+  font-size: calc(10px + 2vmin);
 }
 
 .link {

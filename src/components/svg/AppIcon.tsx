@@ -5,7 +5,12 @@ import type { Component } from "solid-js";
  * @returns
  */
 const AppIcon: Component = () => {
-  return <>Weague</>;
+  return (
+    <div className="flex flex-col">
+      Weague
+      <div className="font-mono text-xs">(Wordle + League)</div>
+    </div>
+  );
 };
 
 export default AppIcon;
