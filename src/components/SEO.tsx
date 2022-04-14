@@ -1,9 +1,10 @@
 import { Component } from "solid-js";
+import { Portal } from "solid-js/web";
 
 const SEO: Component = () => {
   // return (
-  //   <head>
-  //     <link rel="preconnect" href="https://fonts.googleapis.com" />
+  //   <Portal>
+  //     {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
   //     <link
   //       rel="preconnect"
   //       href="https://fonts.gstatic.com"
@@ -12,8 +13,8 @@ const SEO: Component = () => {
   //     <link
   //       href="https://fonts.googleapis.com/css2?family=Lexend&display=swap"
   //       rel="stylesheet"
-  //     />
-  //   </head>
+  //     /> */}
+  //   </Portal>
   // );
 
   return (<></>)
