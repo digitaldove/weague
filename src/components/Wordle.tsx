@@ -1,4 +1,5 @@
-import { Component, createSignal, JSX } from "solid-js";
+import { Component, createSignal } from "solid-js";
+import { guessWordle } from "../wordle/wordle";
 import InputGroup from "./InputGroup";
 
 interface Props {
@@ -6,32 +7,35 @@ interface Props {
 }
 
 const Wordle: Component<Props> = ({ ref }) => {
-  const [input, setInput] = createSignal("");
-  const [guess, setGuess] = createSignal([]);
+  const answer = "mango";
 
+  const [input, setInput] = createSignal<string>("");
+  const [guess, setGuess] = createSignal<string[]>([]);
+
+  console.log(input());
   return (
     <>
       <input
         // Hide input element
+        value={input()}
         ref={ref}
         style={{ "z-index": -1, position: "absolute", top: 0, left: 0 }}
         autofocus
         // onKeyPress={(e) => {}}
-        onInput={(e) => {
-          // console.log(e);
-          // console.log(e.currentTarget.value);
-          // e.preventDefault()
-          setInput(e.currentTarget.value);
-          // if (input().length < 5) {
-          // }
-        }}
+        onInput={(e) => setInput(e.currentTarget.value)}
         maxLength={5}
         onBlur={(e) => {
           console.log("out of focus");
         }}
-        // onFocus={(e) => {
-        //   console.log("focusing");
-        // }}
+        onKeyPress={(e) => {
+          //
+          if (e.key === "Enter" && input().length === 5) {
+            guessWordle(input(), answer);
+            setGuess([...guess(), input()]);
+            setInput("");
+          }
+          console.debug("guess", guess());
+        }}
       />
       <InputGroup input={input()} />
     </>
