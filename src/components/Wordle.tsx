@@ -12,7 +12,6 @@ const Wordle: Component<Props> = ({ ref }) => {
   const [input, setInput] = createSignal<string>("");
   const [guess, setGuess] = createSignal<string[]>([]);
 
-  console.log(input());
   return (
     <>
       <input
@@ -21,16 +20,16 @@ const Wordle: Component<Props> = ({ ref }) => {
         ref={ref}
         style={{ "z-index": -1, position: "absolute", top: 0, left: 0 }}
         autofocus
-        // onKeyPress={(e) => {}}
         onInput={(e) => setInput(e.currentTarget.value)}
         maxLength={5}
-        onBlur={(e) => {
-          console.log("out of focus");
-        }}
+        // onBlur={() => {
+        //   console.log("out of focus");
+        // }}
         onKeyPress={(e) => {
-          //
           if (e.key === "Enter" && input().length === 5) {
             guessWordle(input(), answer);
+
+            // Add guess into array and reset the current input
             setGuess([...guess(), input()]);
             setInput("");
           }

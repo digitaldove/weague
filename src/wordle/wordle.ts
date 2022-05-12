@@ -1,3 +1,6 @@
+const countOccurrences = (arr: string[], val: string) =>
+  arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
+
 export const guessWordle = (guess: string, answer: string) => {
   // "mango"
   // "mommy" = 21000
@@ -17,6 +20,8 @@ export const guessWordle = (guess: string, answer: string) => {
   for (let i = 0; i < answerArray.length; i++) {
     if (guessArray[i] === answerArray[i]) {
       result[i] = "2";
+    } else if (answerArray.indexOf(guessArray[i]) !== -1) {
+      result[i] = "1";
     }
   }
 
