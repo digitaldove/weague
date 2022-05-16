@@ -1,7 +1,7 @@
 const countOccurrences = (arr: string[], val: string) =>
   arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
 
-export const guessWordle = (guess: string, answer: string) => {
+export const guessWordle = (guess: string, answer: string): string => {
   // "mango"
   // "mommy" = 21000
   // "monad" = 21200
@@ -25,6 +25,6 @@ export const guessWordle = (guess: string, answer: string) => {
     }
   }
 
-  console.log(result);
-  return;
+  // console.log(result);
+  return result.join("");
 };
