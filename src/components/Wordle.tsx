@@ -1,5 +1,6 @@
 import { Component, createSignal, For } from "solid-js";
 import { guessWordle } from "../wordle/wordle";
+import AnswerGroup from "./AnswerGroup";
 import InputBox from "./InputBox";
 import InputGroup from "./InputGroup";
 
@@ -16,8 +17,10 @@ const Wordle: Component<Props> = ({ ref }) => {
   );
 
   return (
-    <>
-      <For each={guess()}>{(guess, i) => <InputBox input={guess.input} />}</For>
+    <div className="grid gap-2">
+      <For each={guess()}>{(guess, i) => <AnswerGroup guess={guess} />}</For>
+
+      {/* <div style={{ padding: "5rem" }}/> */}
       <input
         // Hide input element
         value={input()}
@@ -44,7 +47,7 @@ const Wordle: Component<Props> = ({ ref }) => {
         }}
       />
       <InputGroup input={input()} />
-    </>
+    </div>
   );
 };
 
