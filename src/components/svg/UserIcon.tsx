@@ -1,10 +1,10 @@
-import type { Component } from 'solid-js';
+import type { Component } from "solid-js";
 
 const UserIcon: Component = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="h-5 w-5"
+      class="h-5 w-5"
       viewBox="0 0 20 20"
       fill="currentColor"
     >
@@ -17,4 +17,4 @@ const UserIcon: Component = () => {
   );
 };
 
-export default UserIcon
+export default UserIcon;

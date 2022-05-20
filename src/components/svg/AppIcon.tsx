@@ -6,9 +6,9 @@ import type { Component } from "solid-js";
  */
 const AppIcon: Component = () => {
   return (
-    <div className="flex flex-col">
+    <div class="flex flex-col">
       Weague
-      <div className="font-mono text-xs">(Wordle + League)</div>
+      <div class="font-mono text-xs">(Wordle + League)</div>
     </div>
   );
 };

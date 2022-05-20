@@ -1,4 +1,5 @@
-import { Component } from "solid-js";
+import { Component, Match, Switch } from "solid-js";
+import { GuessResult } from "src/wordle/wordle";
 
 interface Props {
   guess: string;
@@ -6,27 +7,25 @@ interface Props {
 }
 
 const AnswerBox: Component<Props> = (props: Props) => {
-  switch (props.result) {
-    case "0":
-      return (
-        <div class="border-2 border-gray-300 w-[60px] h-[80px] leading-loose">
+  return (
+    <Switch>
+      <Match when={props.result === GuessResult.Incorrect}>
+        <div class="border-2 border-gray-600 w-[4rem] h-[4rem] leading-[3.8rem]">
           {props.guess.toUpperCase()}
         </div>
-      );
-    case "1":
-      return (
-        <div class="border-2 border-orange-300 w-[60px] h-[80px] leading-loose">
+      </Match>
+      <Match when={props.result === GuessResult.Partial}>
+        <div class="border-2 border-orange-300 w-[4rem] h-[4rem] leading-[3.8rem]">
           {props.guess.toUpperCase()}
         </div>
-      );
-
-    case "2":
-      return (
-        <div class="border-2 border-green-300 w-[60px] h-[80px] leading-loose">
+      </Match>
+      <Match when={props.result === GuessResult.Correct}>
+        <div class="border-2 border-green-300 w-[4rem] h-[4rem] leading-[3.8rem]">
           {props.guess.toUpperCase()}
         </div>
-      );
-  }
+      </Match>
+    </Switch>
+  );
 };
 
 export default AnswerBox;

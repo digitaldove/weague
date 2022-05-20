@@ -1,16 +1,27 @@
 import { Component } from "solid-js";
-import AppIcon from "./svg/AppIcon";
-import CogIcon from "./svg/CogIcon";
-import UserIcon from "./svg/UserIcon";
+import AppIcon from "src/components/svg/AppIcon";
+import CogIcon from "src/components/svg/CogIcon";
+import UserIcon from "src/components/svg/UserIcon";
 
 const Menu: Component = () => {
   return (
     <div class="h-12 container mx-auto flex px-12 items-center">
-      <AppIcon />
+      {/* Left handside */}
+      <div class="cursor-pointer" onClick={() => {}}>
+        <AppIcon />
+      </div>
+
+      {/* Center */}
       <div class="flex-1" />
-      <CogIcon />
+
+      {/* Right handside */}
+      <div class="cursor-pointer">
+        <CogIcon />
+      </div>
       <div class="mx-2" />
-      <UserIcon />
+      <div class="cursor-pointer">
+        <UserIcon />
+      </div>
     </div>
   );
 };
